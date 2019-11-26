@@ -2,6 +2,8 @@ from datetime import datetime
 from sense_hat import SenseHat
 sense = SenseHat()
 now = datetime.now()
+import json
+import time
 
 while True:
     # Take readings from all three sensors
@@ -17,3 +19,4 @@ while True:
     message = "T: " + str(t) + " P: " + str(p) + " H: " + str(h) + " Time: " + str(now.strftime("%d/%m/%Y, %H:%M:%S"))
     
     sense.show_message(message, scroll_speed=0.05)
+    jsonString = json.dumps(message, time.sleep(5)) 
