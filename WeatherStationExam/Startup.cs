@@ -35,8 +35,6 @@ namespace WeatherStationExam
                 }
             );
 
-            //CORS snask
-            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,11 +53,7 @@ namespace WeatherStationExam
                 c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Vejrstation API v1.0")
             );
 
-            //mere CORS snask
-            app.UseCors
-            (
-                options => { options.AllowAnyOrigin().AllowAnyMethod(); }
-            );
+          
 
             app.UseMvc();
         }
