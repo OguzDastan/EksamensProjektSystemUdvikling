@@ -6,11 +6,11 @@ import json
 import time
 
 while True:
+    
     # Take readings from all three sensors
     t = sense.get_temperature_from_humidity()
     p = sense.get_pressure()
     h = sense.get_humidity()
-
     # Round the values to one decimal place
     t = round(t, 1)
     p = round(p, 1)
