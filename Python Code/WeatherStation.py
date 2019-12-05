@@ -4,6 +4,10 @@ sense = SenseHat()
 now = datetime.now()
 import json
 import time
+import requests
+url = 'http://voresvejrstation.azurewebsites.net/api/WeatherDatas'
+payload = {'Temperature: ': ''}
+
 
 while True:
     
