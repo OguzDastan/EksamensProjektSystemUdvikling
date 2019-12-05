@@ -5,16 +5,16 @@ namespace WeatherLibrary
     public class WeatherData
     {
         public int _id;
-        public float _pressure;
-        public float _temperature;
-        public float _humidity;
+        public decimal _pressure;
+        public decimal _temperature;
+        public decimal _humidity;
         public DateTime Time;
 
         public WeatherData()
         {
         }
 
-        public WeatherData(int id, float pressure, float temperature, float humidity, DateTime time)
+        public WeatherData(int id, decimal pressure, decimal temperature, decimal humidity, DateTime time)
         {
             _id = id;
             _pressure = pressure;
@@ -29,19 +29,19 @@ namespace WeatherLibrary
             set => _id = value;
         }
 
-        public float Pressure
+        public decimal Pressure
         {
             get => _pressure;
             set => _pressure = value;
         }
 
-        public float Temperature
+        public decimal Temperature
         {
             get => _temperature;
             set => _temperature = value;
         }
 
-        public float Humidity
+        public decimal Humidity
         {
             get => _humidity;
             set => _humidity = value;

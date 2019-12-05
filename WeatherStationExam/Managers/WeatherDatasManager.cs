@@ -14,9 +14,14 @@ namespace WeatherStationExam.Managers
         private const string GET_ONE = "SELECT * FROM WeatherData WHERE Id = @WeatherId";
         private const string INSERT = "INSERT INTO WeatherData values (@DataId, @Pressure, @Temperature, @Humidity, @Time)";
 
+
+        private static int nextId = 1;
+        // Ny instans af manager classen for at hente de færdig lavede "GET" og "POST" metoder
+        public static List<WeatherData> weatherdata = new List<WeatherData>();
+
+
         public List<WeatherData> Get()
         {
-            List<WeatherData> weatherdata = new List<WeatherData>();
 
             using (SqlCommand cmd = new SqlCommand(GET_ALL, SQLConnectionSingleton.Instance.DbConnection))
             {
@@ -27,9 +32,9 @@ namespace WeatherStationExam.Managers
                     weatherdata.Add(new WeatherData()
                     {
                         Id = reader.GetInt32(0),
-                        Pressure = reader.GetInt32(1),
-                        Temperature = reader.GetInt32(2),
-                        Humidity = reader.GetInt32(3),
+                        Pressure = reader.GetDecimal(1),
+                        Temperature = reader.GetDecimal(2),
+                        Humidity = reader.GetDecimal(3),
                         Time = reader.GetDateTime(4)
 
                     });
@@ -58,9 +63,9 @@ namespace WeatherStationExam.Managers
                     a = new WeatherData()
                     {
                         Id = reader.GetInt32(0),
-                        Pressure = reader.GetInt32(1),
-                        Temperature = reader.GetInt32(2),
-                        Humidity = reader.GetInt32(3),
+                        Pressure = reader.GetDecimal(1),
+                        Temperature = reader.GetDecimal(2),
+                        Humidity = reader.GetDecimal(3),
                         Time = reader.GetDateTime(4)
                     };
                 }
@@ -75,7 +80,7 @@ namespace WeatherStationExam.Managers
         {
             using (SqlCommand cmd = new SqlCommand(INSERT, SQLConnectionSingleton.Instance.DbConnection))
             {
-                cmd.Parameters.AddWithValue("@DataId", wd.Id);
+                cmd.Parameters.AddWithValue("@DataId", wd.Id = nextId++);
                 cmd.Parameters.AddWithValue("@Pressure", wd.Pressure);
                 cmd.Parameters.AddWithValue("@Temperature", wd.Temperature);
                 cmd.Parameters.AddWithValue("@Humdity", wd.Humidity);

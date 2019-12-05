@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WeatherStationExam.Managers;
+using WeatherLibrary;
 
 namespace WeatherStationExam.Controllers
 {
@@ -11,24 +13,29 @@ namespace WeatherStationExam.Controllers
     [ApiController]
     public class WeatherDatasController : ControllerBase
     {
+
+        private WeatherDatasManager wm = new WeatherDatasManager();
+        
+
         // GET: api/WeatherDatas
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<WeatherData> Get()
         {
-            return new string[] { "value1", "value2" };
+            return wm.Get();
         }
 
         // GET: api/WeatherDatas/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public WeatherData Get(int id)
         {
-            return "value";
+            return wm.Get(id);
         }
 
         // POST: api/WeatherDatas
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] WeatherData value)
         {
+            wm.Post(value);
         }
 
         // PUT: api/WeatherDatas/5
