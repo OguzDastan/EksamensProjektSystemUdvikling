@@ -7,7 +7,7 @@ import time
 from csv import writer
 import csv
 
-with open('data.csv', 'w', newline='') as f:
+with open('data.json', 'w', newline='') as f:
     writer = csv.writer(f)
 while True:
     def get_sense_data():
@@ -27,7 +27,7 @@ while True:
     h = round(h, 1)
     
    # message = return sense_data
-    message = "T: " + str(t) + " P: " + str(p) + " H: " + str(h) + " Time: " + str(now.strftime("%d/%m/%Y, %H:%M:%S"))
+    message = "T: " + str(t) + " P: " + str(p) + " H: " + str(h) + " Time: " + str(now.strftime("%d/%m/%Y %H:%M:%S"))
     
     sense.show_message(message, scroll_speed=0.05)
     data_list = []
