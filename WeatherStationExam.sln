@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherStationExam", "WeatherStationExam\WeatherStationExam.csproj", "{03EA2B57-13E1-4379-8B0F-2FA2C97C38D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationExam", "WeatherStationExam\WeatherStationExam.csproj", "{03EA2B57-13E1-4379-8B0F-2FA2C97C38D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherLibrary", "WeatherLibrary\WeatherLibrary.csproj", "{E7807BF9-0EE5-44AD-B4DE-2C71EB7C637D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherLibrary", "WeatherLibrary\WeatherLibrary.csproj", "{E7807BF9-0EE5-44AD-B4DE-2C71EB7C637D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDPproxy", "UDPproxy\UDPproxy.csproj", "{0B239E6B-2A87-4B93-A111-86DE3158B7E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E7807BF9-0EE5-44AD-B4DE-2C71EB7C637D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7807BF9-0EE5-44AD-B4DE-2C71EB7C637D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7807BF9-0EE5-44AD-B4DE-2C71EB7C637D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B239E6B-2A87-4B93-A111-86DE3158B7E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B239E6B-2A87-4B93-A111-86DE3158B7E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B239E6B-2A87-4B93-A111-86DE3158B7E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B239E6B-2A87-4B93-A111-86DE3158B7E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
