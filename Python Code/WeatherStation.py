@@ -1,13 +1,17 @@
+BROADCAST_TO_PORT = 7000
 from datetime import datetime
 from sense_hat import SenseHat
 sense = SenseHat()
 now = datetime.now()
 import json
 import time
+from socket import *
 import requests
 url = 'http://voresvejrstation.azurewebsites.net/api/WeatherDatas'
 payload = {'Temperature: ': ''}
 
+s = socket(AF_INET, SOCK_DGRAM)
+s.setsockopt(SQL_SOCKET, SO_BROADCAST, 1)
 
 while True:
     
@@ -20,7 +24,8 @@ while True:
     p = round(p, 1)
     h = round(h, 1)
     
-    message = "T: " + str(t) + " P: " + str(p) + " H: " + str(h) + " Time: " + str(now.strftime("%d/%m/%Y, %H:%M:%S"))
-    
-    sense.show_message(message, scroll_speed=0.05)
-    jsonString = json.dumps(message, time.sleep(5)) # ret til 600 sec ved launch 
+    data = "T: " + str(t) + " P: " + str(p) + " H: " + str(h) + " Time: " + str(now.strftime("%d/%m/%Y %H:%M:%S"))
+    s.sendto(bytes(data, "UTF-8"), ('<broadcast>', BROADCAST_TO_PORT))
+    sense.show_message(data, scroll_speed=0.05)
+    print(data)
+    time.sleep(600)
