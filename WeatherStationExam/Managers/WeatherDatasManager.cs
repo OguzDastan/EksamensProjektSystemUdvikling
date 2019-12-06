@@ -83,6 +83,7 @@ namespace WeatherStationExam.Managers
 
                 int RowsAffected = cmd.ExecuteNonQuery();
 
+                // returnere true hvis oprettet
                 return RowsAffected == 1;
             }
         }
