@@ -14,7 +14,7 @@ namespace WeatherLibrary
         public WeatherData()
         {
         }
-
+        /*
         public WeatherData(int id, decimal pressure, decimal temperature, decimal humidity, DateTime time)
         {
             _id = id;
@@ -23,7 +23,7 @@ namespace WeatherLibrary
             _humidity = humidity;
             Time = time;
         }
-
+        */
         public int Id
         {
             get => _id;
