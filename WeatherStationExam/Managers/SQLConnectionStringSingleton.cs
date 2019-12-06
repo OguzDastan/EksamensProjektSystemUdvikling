@@ -19,7 +19,7 @@ namespace WeatherStationExam.Managers
         }
 
         private SqlConnection _dbConnection;
-        private const String ConnString = @"Server=tcp:oguzserverdb.database.windows.net,1433;Initial Catalog=MyServerDB;Persist Security Info=False;User ID=oguz0040;Password=SECRET123pass;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private const String ConnString = @"Server=tcp:oguzserverdb.database.windows.net,1433;Initial Catalog=MyServerDB;Persist Security Info=False;User ID=oguz0040;Password=Dastan12;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         public SqlConnection DbConnection => _dbConnection;
     }
 }

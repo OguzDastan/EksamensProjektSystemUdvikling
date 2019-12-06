@@ -27,9 +27,9 @@ namespace WeatherStationExam.Managers
                     weatherdata.Add(new WeatherData()
                     {
                         Id = reader.GetInt32(0),
-                        Pressure = reader.GetInt32(1),
-                        Temperature = reader.GetInt32(2),
-                        Humidity = reader.GetInt32(3),
+                        Pressure = reader.GetDecimal(1),
+                        Temperature = reader.GetDecimal(2),
+                        Humidity = reader.GetDecimal(3),
                         Time = reader.GetDateTime(4)
 
                     });
@@ -58,9 +58,9 @@ namespace WeatherStationExam.Managers
                     a = new WeatherData()
                     {
                         Id = reader.GetInt32(0),
-                        Pressure = reader.GetInt32(1),
-                        Temperature = reader.GetInt32(2),
-                        Humidity = reader.GetInt32(3),
+                        Pressure = reader.GetDecimal(1),
+                        Temperature = reader.GetDecimal(2),
+                        Humidity = reader.GetDecimal(3),
                         Time = reader.GetDateTime(4)
                     };
                 }
