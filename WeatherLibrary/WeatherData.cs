@@ -5,11 +5,11 @@ namespace WeatherLibrary
     [Serializable]
     public class WeatherData
     {
-        public int _id;
-        public decimal _pressure;
-        public decimal _temperature;
-        public decimal _humidity;
-        public DateTime Time;
+        private int _id;
+        private decimal _pressure;
+        private decimal _temperature;
+        private decimal _humidity;
+        private DateTime time;
 
         public WeatherData()
         {
@@ -48,10 +48,10 @@ namespace WeatherLibrary
             set => _humidity = value;
         }
 
-        public DateTime Time1
+        public DateTime Time
         {
-            get => Time;
-            set => Time = value;
+            get => time;
+            set => time = value;
         }
 
         public override string ToString()

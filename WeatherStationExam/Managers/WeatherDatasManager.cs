@@ -31,11 +31,11 @@ namespace WeatherStationExam.Managers
                         Temperature = reader.GetDecimal(2),
                         Humidity = reader.GetDecimal(3),
                         Time = reader.GetDateTime(4)
-
                     });
                 }
-                return weatherdata;
+                reader.Close();
             }
+            return weatherdata;
         }
 
         public WeatherData Get(int WeatherId)
@@ -78,7 +78,7 @@ namespace WeatherStationExam.Managers
                 cmd.Parameters.AddWithValue("@DataId", wd.Id);
                 cmd.Parameters.AddWithValue("@Pressure", wd.Pressure);
                 cmd.Parameters.AddWithValue("@Temperature", wd.Temperature);
-                cmd.Parameters.AddWithValue("@Humdity", wd.Humidity);
+                cmd.Parameters.AddWithValue("@Humidity", wd.Humidity);
                 cmd.Parameters.AddWithValue("@Time", wd.Time);
 
                 int RowsAffected = cmd.ExecuteNonQuery();
