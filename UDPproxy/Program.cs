@@ -1,6 +1,11 @@
 ﻿using System;
+using System.IO;
+using System.Net;
 using System.Net.Sockets;
-
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using WeatherLibrary;
 
 namespace UDPproxy
 {
@@ -14,22 +19,21 @@ namespace UDPproxy
         static void Main(string[] args)
         {
             Console.WriteLine("UDP Proxy says hello!");
-            Start();
+            UdpClient client = new UdpClient();
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, listeningSocket);
 
-            while (isRunning)
+            while (true)
             {
-                //here we listen
+                byte[] receiveBytes = client.Receive(ref endPoint);
+                var receiveStream = new MemoryStream(receiveBytes);
+                //string returnData = Encoding.ASCII.GetString(receiveBytes);
+                WeatherData rData = new WeatherData();
+                IFormatter formatter = new BinaryFormatter();
+
+                rData = (formatter.Deserialize(receiveStream) as WeatherData);
+                Console.WriteLine(rData.ToString());
             }
 
-        }
-
-
-        static void Start()
-        {
-            UdpClient client = new UdpClient();
-            
-
-            isRunning = true;
         }
 
     }

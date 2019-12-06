@@ -2,6 +2,7 @@
 
 namespace WeatherLibrary
 {
+    [Serializable]
     public class WeatherData
     {
         public int _id;
@@ -51,6 +52,12 @@ namespace WeatherLibrary
         {
             get => Time;
             set => Time = value;
+        }
+
+        public override string ToString()
+        {
+            return Id + " " + Pressure + " " + Temperature + " " + Humidity +
+                   " " + Time;
         }
     }
 }
