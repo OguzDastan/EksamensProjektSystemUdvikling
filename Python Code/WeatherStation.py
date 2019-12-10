@@ -1,5 +1,5 @@
 BROADCAST_TO_PORT = 6969
-SLEEP_SEC = 5 #skal være 600
+SLEEP_SEC = 600 #skal være 600
 from datetime import datetime
 from sense_hat import SenseHat
 sense = SenseHat()  
@@ -27,7 +27,7 @@ while True:
     p = round(p, 1)
     h = round(h, 1)
     
-    data = "T: " + str(t) + " P: " + str(p) + " H: " + str(h) + " Time: " + str(now.strftime("%d/%m/%Y %H:%M:%S"))
+    data = "T: " + str(t) + " P: " + str(p) + " H: " + str(h) + " Time: " + str(datetime.now())
     s.sendto(bytes(data, "UTF-8"), ('<broadcast>', BROADCAST_TO_PORT))
     sense.show_message(data, scroll_speed=0.05)
     print(data)
