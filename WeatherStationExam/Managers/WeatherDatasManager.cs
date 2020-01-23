@@ -12,7 +12,7 @@ namespace WeatherStationExam.Managers
     {
         private const string GET_ALL = "SELECT * FROM WeatherData";
         private const string GET_ONE = "SELECT * FROM WeatherData WHERE Id = @WeatherId";
-        private const string INSERT = "INSERT INTO WeatherData values (@DataId, @Pressure, @Temperature, @Humidity, @Time)";
+        private const string INSERT = "INSERT INTO WeatherData values (@Pressure, @Temperature, @Humidity, @Time)";
 
         public List<WeatherData> Get()
         {
@@ -75,7 +75,6 @@ namespace WeatherStationExam.Managers
         {
             using (SqlCommand cmd = new SqlCommand(INSERT, SQLConnectionSingleton.Instance.DbConnection))
             {
-                cmd.Parameters.AddWithValue("@DataId", wd.Id);
                 cmd.Parameters.AddWithValue("@Pressure", wd.Pressure);
                 cmd.Parameters.AddWithValue("@Temperature", wd.Temperature);
                 cmd.Parameters.AddWithValue("@Humidity", wd.Humidity);
